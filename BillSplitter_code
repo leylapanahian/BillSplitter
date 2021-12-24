@@ -1,0 +1,30 @@
+# write your code here
+import random
+
+print("Enter the number of friends joining (including you):")
+a=int(input())
+
+if a<=0:
+    print("No one is joining for the party")
+else:
+    dic1={}
+    print("Enter the name of every friend (including you), each on a new line:")
+    for i in range(a):
+        nam=input()
+        dic1[nam]=0
+    print("Enter the total bill value:")
+    b=int(input())
+    for i in dic1.keys():
+        dic1[i]=round(b/a,2)
+    print('Do you want to use the "Who is lucky?" feature? Write Yes/No:')
+    ans=input()
+    if ans=="Yes":
+        lucky=random.choice(list(dic1.keys()))
+        print(lucky,"is the lucky one!")
+        for i in dic1.keys():
+            dic1[i]=round(b/(a-1),2)
+        dic1[lucky]=0
+        print(dic1)
+    else:
+        print("No one is going to be lucky")
+        print(dic1)
